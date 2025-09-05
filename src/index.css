@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .magic-circle::before {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    width: 300%;
+    height: 300%;
+    background: conic-gradient(
+      transparent,
+      hsl(var(--primary) / 0.7),
+      hsl(var(--secondary) / 0.5),
+      transparent 35%
+    );
+    animation: magic-swirl-anim 4s linear infinite;
+  }
+  
+  @keyframes magic-swirl-anim {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: hsl(var(--primary));
+    border-radius: 50%;
+    box-shadow: 0 0 6px hsl(var(--primary)), 0 0 12px hsl(var(--primary));
+    opacity: 0;
+    animation: twinkle-anim ease-in-out infinite;
+  }
+
+  @keyframes twinkle-anim {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .quest-progress-bar-container {
+    border: 2px solid hsl(var(--primary) / 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quest-progress-bar-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      transparent,
+      hsl(var(--primary) / 0.3),
+      transparent 20%
+    );
+    animation: quest-shimmer-anim 5s linear infinite;
+  }
+
+  .quest-progress-bar .bg-primary {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.8);
+  }
+
+  @keyframes quest-shimmer-anim {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  :root {
+    --background: 220 20% 7%;
+    --foreground: 210 40% 98%;
+    --card: 220 20% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 20% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 220 20% 7%;
+    --secondary: 51 100% 50%;
+    --secondary-foreground: 220 20% 7%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 220 20% 7%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 25%;
+    --ring: 45 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 20% 7%;
+    --foreground: 210 40% 98%;
+    --card: 220 20% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 20% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 220 20% 7%;
+    --secondary: 51 100% 50%;
+    --secondary-foreground: 220 20% 7%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 220 20% 7%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 25%;
+    --ring: 45 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
