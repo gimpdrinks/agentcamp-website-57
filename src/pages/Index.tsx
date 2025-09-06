@@ -8,6 +8,7 @@ import ParticleBackground from '@/components/ParticleBackground';
 import QuestProgressBar from '@/components/QuestProgressBar';
 import { AudioProvider, useAudio } from '@/context/AudioContext';
 import FeaturesSection from '@/components/FeaturesSection';
+import ProgramsSection from '@/components/ProgramsSection';
 import FAQSection from '@/components/FAQSection';
 import CallToActionSection from '@/components/CallToActionSection';
 const heroImageUrl = "/lovable-uploads/685bcaac-f9a4-4fc3-b1c4-f524891fcd10.png";
@@ -41,6 +42,7 @@ const PageContent = () => {
         
         <FeaturesSection />
         <Testimonials />
+        <ProgramsSection />
         <FAQSection />
         <div data-section="cta">
           <CallToActionSection />
